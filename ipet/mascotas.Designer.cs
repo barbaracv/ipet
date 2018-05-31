@@ -37,11 +37,11 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.foto = new System.Windows.Forms.PictureBox();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.adoptar = new System.Windows.Forms.Button();
+			this.reservar = new System.Windows.Forms.Button();
+			this.gato = new System.Windows.Forms.Button();
+			this.roedor = new System.Windows.Forms.Button();
+			this.perro = new System.Windows.Forms.Button();
 			this.nombre = new System.Windows.Forms.TextBox();
 			this.estado = new System.Windows.Forms.TextBox();
 			this.sexo = new System.Windows.Forms.TextBox();
@@ -158,55 +158,58 @@
 			this.foto.TabIndex = 45;
 			this.foto.TabStop = false;
 			// 
-			// button5
+			// adoptar
 			// 
-			this.button5.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(204, 371);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(137, 40);
-			this.button5.TabIndex = 43;
-			this.button5.Text = "Adoptar";
-			this.button5.UseVisualStyleBackColor = true;
+			this.adoptar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.adoptar.Location = new System.Drawing.Point(204, 371);
+			this.adoptar.Name = "adoptar";
+			this.adoptar.Size = new System.Drawing.Size(137, 40);
+			this.adoptar.TabIndex = 43;
+			this.adoptar.Text = "Adoptar";
+			this.adoptar.UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// reservar
 			// 
-			this.button4.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(33, 371);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(143, 40);
-			this.button4.TabIndex = 42;
-			this.button4.Text = "Reservar";
-			this.button4.UseVisualStyleBackColor = true;
+			this.reservar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.reservar.Location = new System.Drawing.Point(33, 371);
+			this.reservar.Name = "reservar";
+			this.reservar.Size = new System.Drawing.Size(143, 40);
+			this.reservar.TabIndex = 42;
+			this.reservar.Text = "Reservar";
+			this.reservar.UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// gato
 			// 
-			this.button3.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(341, 41);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(140, 41);
-			this.button3.TabIndex = 41;
-			this.button3.Text = "Gato";
-			this.button3.UseVisualStyleBackColor = true;
+			this.gato.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.gato.Location = new System.Drawing.Point(341, 41);
+			this.gato.Name = "gato";
+			this.gato.Size = new System.Drawing.Size(140, 41);
+			this.gato.TabIndex = 41;
+			this.gato.Text = "Gato";
+			this.gato.UseVisualStyleBackColor = true;
+			this.gato.Click += new System.EventHandler(this.gato_Click);
 			// 
-			// button1
+			// roedor
 			// 
-			this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(495, 41);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(140, 41);
-			this.button1.TabIndex = 40;
-			this.button1.Text = "Roedor";
-			this.button1.UseVisualStyleBackColor = true;
+			this.roedor.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.roedor.Location = new System.Drawing.Point(495, 41);
+			this.roedor.Name = "roedor";
+			this.roedor.Size = new System.Drawing.Size(140, 41);
+			this.roedor.TabIndex = 40;
+			this.roedor.Text = "Roedor";
+			this.roedor.UseVisualStyleBackColor = true;
+			this.roedor.Click += new System.EventHandler(this.roedor_Click);
 			// 
-			// button2
+			// perro
 			// 
-			this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(185, 41);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(140, 41);
-			this.button2.TabIndex = 39;
-			this.button2.Text = "Perro";
-			this.button2.UseVisualStyleBackColor = true;
+			this.perro.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.perro.Location = new System.Drawing.Point(185, 41);
+			this.perro.Name = "perro";
+			this.perro.Size = new System.Drawing.Size(140, 41);
+			this.perro.TabIndex = 39;
+			this.perro.Text = "Perro";
+			this.perro.UseVisualStyleBackColor = true;
+			this.perro.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// nombre
 			// 
@@ -238,7 +241,7 @@
 			// 
 			// valor1
 			// 
-			this.valor1.Location = new System.Drawing.Point(702, 348);
+			this.valor1.Location = new System.Drawing.Point(570, 360);
 			this.valor1.Name = "valor1";
 			this.valor1.Size = new System.Drawing.Size(100, 20);
 			this.valor1.TabIndex = 65;
@@ -271,6 +274,7 @@
 			this.lista_mascotas.Size = new System.Drawing.Size(309, 211);
 			this.lista_mascotas.TabIndex = 69;
 			this.lista_mascotas.UseCompatibleStateImageBehavior = false;
+			this.lista_mascotas.SelectedIndexChanged += new System.EventHandler(this.lista_mascotas_SelectedIndexChanged);
 			// 
 			// valor2
 			// 
@@ -319,11 +323,11 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.foto);
-			this.Controls.Add(this.button5);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.adoptar);
+			this.Controls.Add(this.reservar);
+			this.Controls.Add(this.gato);
+			this.Controls.Add(this.roedor);
+			this.Controls.Add(this.perro);
 			this.Name = "Mascotas";
 			this.Text = "mascotas";
 			((System.ComponentModel.ISupportInitialize)(this.foto)).EndInit();
@@ -343,11 +347,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox foto;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button adoptar;
+        private System.Windows.Forms.Button reservar;
+        private System.Windows.Forms.Button gato;
+        private System.Windows.Forms.Button roedor;
+        private System.Windows.Forms.Button perro;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.TextBox estado;
         private System.Windows.Forms.TextBox sexo;

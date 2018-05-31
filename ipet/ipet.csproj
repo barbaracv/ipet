@@ -52,6 +52,7 @@
     <Compile Include="LoginVoluntario.Designer.cs">
       <DependentUpon>LoginVoluntario.cs</DependentUpon>
     </Compile>
+    <Compile Include="mascota.cs" />
     <Compile Include="Mascotas.cs">
       <SubType>Form</SubType>
     </Compile>

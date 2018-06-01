@@ -52,8 +52,8 @@
 			this.fechanac = new System.Windows.Forms.TextBox();
 			this.lista_mascotas = new System.Windows.Forms.ListView();
 			this.valor2 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.atributo2 = new System.Windows.Forms.TextBox();
+			this.atributo1 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.foto)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -177,6 +177,7 @@
 			this.reservar.TabIndex = 42;
 			this.reservar.Text = "Reservar";
 			this.reservar.UseVisualStyleBackColor = true;
+			this.reservar.Click += new System.EventHandler(this.reservar_Click);
 			// 
 			// gato
 			// 
@@ -283,27 +284,27 @@
 			this.valor2.Size = new System.Drawing.Size(100, 20);
 			this.valor2.TabIndex = 70;
 			// 
-			// textBox2
+			// atributo2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(455, 391);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(100, 20);
-			this.textBox2.TabIndex = 71;
+			this.atributo2.Location = new System.Drawing.Point(455, 391);
+			this.atributo2.Name = "atributo2";
+			this.atributo2.Size = new System.Drawing.Size(100, 20);
+			this.atributo2.TabIndex = 71;
 			// 
-			// textBox3
+			// atributo1
 			// 
-			this.textBox3.Location = new System.Drawing.Point(455, 360);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(100, 20);
-			this.textBox3.TabIndex = 72;
+			this.atributo1.Location = new System.Drawing.Point(455, 360);
+			this.atributo1.Name = "atributo1";
+			this.atributo1.Size = new System.Drawing.Size(100, 20);
+			this.atributo1.TabIndex = 72;
 			// 
 			// Mascotas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(814, 449);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.atributo1);
+			this.Controls.Add(this.atributo2);
 			this.Controls.Add(this.valor2);
 			this.Controls.Add(this.lista_mascotas);
 			this.Controls.Add(this.fechanac);
@@ -362,7 +363,7 @@
         private System.Windows.Forms.TextBox fechanac;
         private System.Windows.Forms.ListView lista_mascotas;
 		private System.Windows.Forms.TextBox valor2;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox atributo2;
+		private System.Windows.Forms.TextBox atributo1;
 	}
 }

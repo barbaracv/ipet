@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-
+//
+//
+/// <summary>
+/// comentar metodos
+/// </summary>
 namespace ipet
 {
 	public partial class Mascotas : Form
@@ -68,13 +72,13 @@ namespace ipet
 		private void LoadMascotaSeleccionada(DataRow n)
 		{
 
-			nombre.Text = n[0].ToString();
-			raza.Text = n[0].ToString();
-			sexo.Text = n[3].ToString();
-			estado.Text = n[6].ToString();
-			fechanac.Text = n[1].ToString();
-			ciudad.Text = n[2].ToString();
-			tamaño.Text = n[4].ToString();
+			nombre.Text = n["NOMBRE"].ToString();
+			raza.Text = n["raza"].ToString();
+			sexo.Text = n["SEXO"].ToString();
+			estado.Text = n["estado"].ToString();
+			fechanac.Text = n["FechaNac"].ToString();
+			ciudad.Text = n["CIUDAD"].ToString();
+			tamaño.Text = n["tamaño"].ToString();
 
 
 
@@ -121,14 +125,14 @@ namespace ipet
 				DataTable dt = new DataTable();
 
 				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
-				List<DataRow> rows = dt.AsEnumerable().ToList();
+				rows = dt.AsEnumerable().ToList();
 
 				ListView.ListViewItemCollection listam = new ListView.ListViewItemCollection(lista_mascotas);
 
 				foreach (DataRow m in rows)
 				{
 
-					listam.Add(m[2].ToString(), 0);
+					listam.Add(m["NOMBRE"].ToString(), 0);
 
 				}
 			}
@@ -150,7 +154,7 @@ namespace ipet
 
 			cmdNuevoAdsp.Parameters.Add(new SqlParameter("@idtipomascota", SqlDbType.Int));
 			cmdNuevoAdsp.Parameters["@idtipomascota"].Value = 2;
-
+			
 
 
 			try
@@ -158,20 +162,20 @@ namespace ipet
 				lista_mascotas.Clear();
 				//abrir la conexion
 				conn.Open();
-
+				
 				cmdNuevoAdsp.ExecuteNonQuery();
 				SqlDataReader rdr = cmdNuevoAdsp.ExecuteReader();
 				DataTable dt = new DataTable();
 
 				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
-				List<DataRow> rows = dt.AsEnumerable().ToList();
+				rows = dt.AsEnumerable().ToList();
 
 				ListView.ListViewItemCollection listam = new ListView.ListViewItemCollection(lista_mascotas);
 
 				foreach (DataRow m in rows)
 				{
 
-					listam.Add(m[2].ToString(), 0);
+					listam.Add(m["NOMBRE"].ToString(), 0);
 
 				}
 			}
@@ -207,14 +211,14 @@ namespace ipet
 				DataTable dt = new DataTable();
 
 				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
-				List<DataRow> rows = dt.AsEnumerable().ToList();
+				rows = dt.AsEnumerable().ToList();
 
 				ListView.ListViewItemCollection listam = new ListView.ListViewItemCollection(lista_mascotas);
 
 				foreach (DataRow m in rows)
 				{
 
-					listam.Add(m[2].ToString(), 0);
+					listam.Add(m["NOMBRE"].ToString(), 0);
 
 				}
 			}

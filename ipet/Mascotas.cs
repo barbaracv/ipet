@@ -52,12 +52,7 @@ namespace ipet
 
 				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
 				rows = dt.AsEnumerable().ToList();
-
-
 				
-				
-
-
 				ListView.ListViewItemCollection listam = new ListView.ListViewItemCollection(lista_mascotas);
 
 				foreach (DataRow m in rows)
@@ -86,15 +81,12 @@ namespace ipet
 			fechanac.Text = n["FechaNac"].ToString();
 			ciudad.Text = n["CIUDAD"].ToString();
 			tamaño.Text = n["tamaño"].ToString();
-			//foto.Image = Image.FromFile(System.IO.Path.Combine(Application.StartupPath, n["imagen"].ToString()));
+			foto.Image = Image.FromFile(System.IO.Path.Combine(Application.StartupPath, n["imagen"].ToString()));
 
 		}
-		private void LoadMascotaSeleccionadaAtributo(SqlDataReader rdr)
+		private void LoadMascotaSeleccionadaAtributo(List<DataRow> atributos)
 		{
-			DataTable dt = new DataTable();
-
-			dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
-			List<DataRow> atributos = dt.AsEnumerable().ToList();
+			
 			if (atributos.Count == 1)
 			{
 				atributo1.Text = atributos[0][0].ToString();
@@ -266,33 +258,35 @@ namespace ipet
 				ConfigurationManager.ConnectionStrings["ProyectoFinalConnectionString"];
 			//conectar con bbd
 			SqlConnection conn = new SqlConnection(settings.ConnectionString);
-			SqlCommand cmdNuevoAdsp = new SqlCommand("ProyectoFinal.dbo.cambiar_estadoRES2", conn);
+			SqlCommand cmdNuevoAdsp = new SqlCommand("ProyectoFinal.dbo.pa_reservar", conn);
 			cmdNuevoAdsp.CommandType = CommandType.StoredProcedure;
 
-			cmdNuevoAdsp.Parameters.Add(new SqlParameter("@error", SqlDbType.Int));
-			cmdNuevoAdsp.Parameters["@error"].Direction = ParameterDirection.Output;
+			DataRow n = rows.ElementAt(lista_mascotas.SelectedIndices[0]);
+
+			cmdNuevoAdsp.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+			cmdNuevoAdsp.Parameters["@id"].Value = Convert.ToInt16(n["IDMascota"]);
 
 
 
 			try
 			{
-
 				//abrir la conexion
 				conn.Open();
 
-
 				cmdNuevoAdsp.ExecuteNonQuery();
-				cmdNuevoAdsp.Parameters["@error"].Value = 1;
-
 				
-
-
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show("No se ha podido conectar " + ex.Message);
+
 			}
 
+
+		}
+
+		private void foto_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

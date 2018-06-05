@@ -157,6 +157,7 @@
 			this.foto.Size = new System.Drawing.Size(117, 113);
 			this.foto.TabIndex = 45;
 			this.foto.TabStop = false;
+			this.foto.Click += new System.EventHandler(this.foto_Click);
 			// 
 			// adoptar
 			// 

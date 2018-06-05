@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace ipet
 {
@@ -48,8 +49,9 @@ namespace ipet
 		/// <summary>
 		/// Este método nos permite crear un DataReader con los atributos y valores de cada mascota pasándole su ID.
 		/// </summary>
-		public static SqlDataReader LoadAtributosxMascota(int idmasc)
+		public static List<DataRow> LoadAtributosxMascota(int idmasc)
 		{
+			List<DataRow> atributos = null;
 			ConnectionStringSettings settings =
 			ConfigurationManager.ConnectionStrings["ProyectoFinalConnectionString"];
 			//conectar con bbd
@@ -64,20 +66,23 @@ namespace ipet
 				conn.Open();
 				//Ejecutar comando
 				rdr = cmdVerAtri.ExecuteReader();
+				DataTable dt = new DataTable();
 
+				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
+				atributos = dt.AsEnumerable().ToList();
 			}
 
 
-			catch (Exception ex)
+			catch 
 			{
-				rdr = null;
+				atributos = null;
 
 			}
 			finally
 			{
 				conn.Close();
 			}
-			return rdr;
+			return atributos;
 		}
 
 		public override string ToString()

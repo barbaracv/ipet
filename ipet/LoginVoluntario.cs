@@ -21,6 +21,7 @@ namespace ipet
 
         private void inicio_sesionV_Click(object sender, EventArgs e)
         {
+			this.Hide();
 			//Leer archivo configuracion
 			ConnectionStringSettings setting = ConfigurationManager.ConnectionStrings["ProyectoFinalConnectionString"];// Leer la coneection
 																													   //Conectarme con bbdd

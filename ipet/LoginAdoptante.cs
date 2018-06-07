@@ -14,9 +14,11 @@ namespace ipet
 {
     public partial class LoginAdoptante : Form
     {
+		
         public LoginAdoptante()
         {
             InitializeComponent();
+
         }
 
         private void registrarse1_Click(object sender, EventArgs e)
@@ -46,13 +48,15 @@ namespace ipet
 				{
 					Mascotas frm = new Mascotas();
 					frm.Show();
+					
 				}
 				else
 				{
-					MessageBox.Show("El correo o la contraseña no son correctos");
+					Advertencia.Text=("El correo o la contraseña no son correctos");
 				}
 
 				rdr.Close();
+				this.Hide();
 			}
 
 

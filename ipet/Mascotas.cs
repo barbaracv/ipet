@@ -17,12 +17,13 @@ namespace ipet
 	public partial class Mascotas : Form
 	{
 		private List<DataRow> rows;
-		
+
+
 		public Mascotas()
 		{
 			InitializeComponent();
 			LoadListViewMascotas();
-			
+
 		}
 
 		private void label6_Click(object sender, EventArgs e)
@@ -37,9 +38,9 @@ namespace ipet
 			ConfigurationManager.ConnectionStrings["ProyectoFinalConnectionString"];
 			//conectar con bbd
 			SqlConnection conn = new SqlConnection(settings.ConnectionString);
-			SqlCommand cmdMostrarmas =new SqlCommand( "ProyectoFinal.dbo.pa_mostrarMas", conn);
+			SqlCommand cmdMostrarmas = new SqlCommand("ProyectoFinal.dbo.pa_mostrarMas", conn);
 			cmdMostrarmas.CommandType = CommandType.StoredProcedure;
-			
+
 
 			try
 			{
@@ -52,25 +53,25 @@ namespace ipet
 
 				dt.Load(rdr); //Cargando una tabla donde le pasamos el DataReader
 				rows = dt.AsEnumerable().ToList();
-				
+
 				ListView.ListViewItemCollection listam = new ListView.ListViewItemCollection(lista_mascotas);
 
 				foreach (DataRow m in rows)
 				{
-					
-					listam.Add(m["NOMBRE"].ToString(),0);
-					
+
+					listam.Add(m["NOMBRE"].ToString(), 0);
+
 				}
-				
+
 			}
-			
+
 
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 
 			}
-}
+		}
 		private void LoadMascotaSeleccionada(DataRow n)
 		{
 
@@ -84,6 +85,9 @@ namespace ipet
 			foto.Image = Image.FromFile(System.IO.Path.Combine(Application.StartupPath, n["imagen"].ToString()));
 
 		}
+		
+	
+
 		private void LoadMascotaSeleccionadaAtributo(List<DataRow> atributos)
 		{
 			
@@ -112,6 +116,7 @@ namespace ipet
 
 					LoadMascotaSeleccionada(n);
 					LoadMascotaSeleccionadaAtributo(mascota.LoadAtributosxMascota(Convert.ToInt16(n["IDMascota"])));
+				
 
 				}
 
@@ -274,7 +279,8 @@ namespace ipet
 				conn.Open();
 
 				cmdNuevoAdsp.ExecuteNonQuery();
-				
+				LoadMascotaSeleccionada(n);
+				LoadListViewMascotas();
 			}
 			catch (Exception ex)
 			{

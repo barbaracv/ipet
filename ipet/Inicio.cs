@@ -12,21 +12,30 @@ namespace ipet
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+
+		public Inicio()
         {
             InitializeComponent();
-        }
+			
+		}
 
         private void btnvoluntario_Click(object sender, EventArgs e)
         {
-            Form lv = new LoginVoluntario();
+			Form lv = new LoginVoluntario();
             lv.Show();
-        }
+			this.Hide();
 
-        private void btnadoptante_Click(object sender, EventArgs e)
+		}
+		
+		private void btnadoptante_Click(object sender, EventArgs e)
         {
-            Form la = new LoginAdoptante();
+			
+			Form la = new LoginAdoptante();
             la.Show();
-        }
-    }
+			this.Hide();
+
+
+		}
+		
+	}
 }

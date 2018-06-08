@@ -41,6 +41,7 @@ namespace ipet
 				{
 					Modificacion_mascotas frm = new Modificacion_mascotas();
 					frm.Show();
+					this.Hide();
 				}
 				else
 				{
@@ -48,20 +49,28 @@ namespace ipet
 				}
 
 				rdr.Close();
+				
 			}
 
 
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				errorvol.Text=(ex.Message);
 
 			}
 
+
+			
 		}
 
         private void Codigo_TextChanged(object sender, EventArgs e)
         {
 
         }
-    }
+
+		private void errorvol_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

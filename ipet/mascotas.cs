@@ -85,9 +85,6 @@ namespace ipet
 			foto.Image = Image.FromFile(System.IO.Path.Combine(Application.StartupPath, n["imagen"].ToString()));
 
 		}
-		
-	
-
 		private void LoadMascotaSeleccionadaAtributo(List<DataRow> atributos)
 		{
 			
@@ -121,11 +118,6 @@ namespace ipet
 				}
 
 			}
-
-		
-
-
-
 		private void button2_Click(object sender, EventArgs e)
 		{
 			//LEER ARCHIVO CONFIGURACION
@@ -168,7 +160,6 @@ namespace ipet
 				MessageBox.Show("No se ha podido conectar " + ex.Message);
 			}
 		}
-
 		private void gato_Click(object sender, EventArgs e)
 		{
 			//LEER ARCHIVO CONFIGURACION
@@ -211,7 +202,6 @@ namespace ipet
 				MessageBox.Show("No se ha podido conectar " + ex.Message);
 			}
 		}
-
 		private void roedor_Click(object sender, EventArgs e)
 		{
 			//LEER ARCHIVO CONFIGURACION
@@ -255,7 +245,6 @@ namespace ipet
 				MessageBox.Show("No se ha podido conectar " + ex.Message);
 			}
 		}
-
 		private void reservar_Click(object sender, EventArgs e)
 		{
 			//LEER ARCHIVO CONFIGURACION
@@ -279,8 +268,9 @@ namespace ipet
 				conn.Open();
 
 				cmdNuevoAdsp.ExecuteNonQuery();
-				LoadMascotaSeleccionada(n);
+				lista_mascotas.Clear();
 				LoadListViewMascotas();
+				LoadMascotaSeleccionada(n);
 			}
 			catch (Exception ex)
 			{
@@ -290,8 +280,48 @@ namespace ipet
 
 
 		}
-
 		private void foto_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void adoptar_Click(object sender, EventArgs e)
+		{
+			//LEER ARCHIVO CONFIGURACION
+			ConnectionStringSettings settings =
+				ConfigurationManager.ConnectionStrings["ProyectoFinalConnectionString"];
+			//conectar con bbd
+			SqlConnection conn = new SqlConnection(settings.ConnectionString);
+			SqlCommand cmdNuevoAdsp = new SqlCommand("ProyectoFinal.dbo.sp_cambiar_estadoAdop", conn);
+			cmdNuevoAdsp.CommandType = CommandType.StoredProcedure;
+			DataRow n = rows.ElementAt(lista_mascotas.SelectedIndices[0]);
+
+			cmdNuevoAdsp.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+			cmdNuevoAdsp.Parameters["@id"].Value = Convert.ToInt16(n["IDMascota"]);
+
+
+
+			try
+			{
+
+				//abrir la conexion
+				conn.Open();
+
+
+				cmdNuevoAdsp.ExecuteNonQuery();
+				lista_mascotas.Clear();
+				LoadListViewMascotas();
+				LoadMascotaSeleccionada(n);
+
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("No se ha podido conectar " + ex.Message);
+			}
+
+		}
+
+		private void Mascotas_Load(object sender, EventArgs e)
 		{
 
 		}

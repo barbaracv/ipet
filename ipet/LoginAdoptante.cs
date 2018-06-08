@@ -48,7 +48,8 @@ namespace ipet
 				{
 					Mascotas frm = new Mascotas();
 					frm.Show();
-					
+					this.Hide();
+
 				}
 				else
 				{
@@ -56,7 +57,7 @@ namespace ipet
 				}
 
 				rdr.Close();
-				this.Hide();
+				
 			}
 
 
